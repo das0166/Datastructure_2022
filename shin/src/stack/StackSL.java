@@ -23,7 +23,7 @@ public class StackSL {
 	 * @param item 저장하려는 초기 정보 1개
 	 */
 	public StackSL(char item) {
-		;
+		this.push(item);
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class StackSL {
 	 */
 	public boolean isEmpty() {
 		if (top == null) return true;
-		else             return false;
+		else return false;
 	}
 
 	/**
@@ -60,7 +60,6 @@ public class StackSL {
 	 * @param item 저장하려는 문자 1개
 	 */
 	public void push(char item) {
-
 		StackNodeSL node = new StackNodeSL(item);
          if(isEmpty()){
                 top = node;
@@ -68,9 +67,6 @@ public class StackSL {
                 node.next= top;
                 top= node;
          }
-
-
-
 	}
 
 	/**
@@ -87,7 +83,6 @@ public class StackSL {
               top = node.next;
               return node.getData();
        }
-
 	}
 
 	/**

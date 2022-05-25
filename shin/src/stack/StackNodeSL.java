@@ -42,7 +42,7 @@ public class StackNodeSL {
 	 * @param aData 저장하려는 글자 1개
 	 */	
 	public void setData(char aData) {
-		;
+		this.data = aData;
 	}
 	
 	/**
@@ -58,7 +58,7 @@ public class StackNodeSL {
 	 * @param aNext 연결하려는 다음 정보 1개
 	 */		
 	public void setNext(StackNodeSL aNext) {
-		;
+		this.next = aNext;
 	}
 
 
