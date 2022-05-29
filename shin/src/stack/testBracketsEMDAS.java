@@ -3,15 +3,8 @@ package stack;
 public class testBracketsEMDAS {
 	public static void main(String args[]) {
 		
-		System.out.println("== Stack Single Linked =================== ï¿½ã…½ê¹® ====");
-		StackSL myStack = new StackSL((char) 3);
-		myStack.push((char) 7);		
-		System.out.println(myStack);
-		myStack.pop();		
-		System.out.println(myStack);
-		
-		System.out.println("== Bracketed EMDAS ===================== ï¿½ê³—ê¶›ï¿½ï¿½ ====");
-		String test = "((((3*5)-(6/2))/((4*2)-(8-4)))-2)";		
+		System.out.println("== Bracketed EMDAS ===================== ¿¬»ê½Ä ====");
+		String test = "((3^3)-(6/2))";		
 		System.out.println("expression given: " + test);
 		
 		if (BracketsEMDAS.isGoodPair(test)) {
@@ -21,11 +14,10 @@ public class testBracketsEMDAS {
 			System.out.println("error in arithmetic expression");
 			return;
 		}
-
-		System.out.println("---------------------------------- postfix ï¿½ê³—ê¶› ----");
+		System.out.println("---------------------------------- postfix ¿¬»ê ----");
 		String inFix   = BracketsEMDAS.toInFix(test);
 		String postFix = BracketsEMDAS.toPosFix(test);
-		
+			
 		System.out.println("       inFix > " + inFix);
 		System.out.println("     postFix > " + postFix);
 		System.out.println("  evaluation = " + BracketsEMDAS.evaluatePostFix(postFix));
