@@ -58,7 +58,14 @@ public class TreeDL {
 	static public TreeNodeDL insert(TreeDL tree, char item) {
 		TreeNodeDL node = tree.root;
 
-		;	// ?????
+//		if(node == null) { 
+//			return new TreeNodeDL(item); // 노드가 빈 경우, 새로운 노드 삽입후 반환 
+//		};
+		if(item < node.item) {
+			node = node.left;
+		} else if(item > node.item) {
+			node = node.right;
+		}// ?????
 
 		return node;
 	}
@@ -173,8 +180,14 @@ public class TreeDL {
 	 * @return 순회 결과 문자열
 	 */	
 	public String inOrderTraversal(TreeNodeDL root) {
-
-		;	// ?????
+		String buff = "";
+		if (root != null) {
+			buff += preOrderTraversal(root.left);
+			buff += root.item;
+			buff += preOrderTraversal(root.right);
+		}
+		
+		return buff;	// ?????
 
 	}
 	
@@ -186,7 +199,15 @@ public class TreeDL {
 	 */
 	public String postOrderTraversal(TreeNodeDL root) {
 
-		;	// ?????
+		String buff = "";
+		if (root != null) {
+			buff += preOrderTraversal(root.left);
+			buff += preOrderTraversal(root.right);
+			buff += root.item;
+		
+		}
+		
+		return buff;	// ?????
 
 	}
 }

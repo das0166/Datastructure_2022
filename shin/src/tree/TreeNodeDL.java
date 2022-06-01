@@ -1,5 +1,6 @@
 package tree;
 
+
 public class TreeNodeDL {
 	/**
 	 * 트리 노드의 데이터
@@ -93,7 +94,9 @@ public class TreeNodeDL {
 	 */	
 	public void setBoth(char left, char right) {
 
-		;	// ?????
+		this.item = left;
+		this.item = right;
+		// ?????
 
 	}
 
@@ -104,7 +107,8 @@ public class TreeNodeDL {
 	 */	
 	public void setBoth(TreeNodeDL left, TreeNodeDL right) {
 
-		;	// ?????
+		this.left = left;
+		this.right = right;	// ?????
 
 	}
 
