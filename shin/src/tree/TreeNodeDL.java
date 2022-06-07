@@ -93,29 +93,12 @@ public class TreeNodeDL {
 	 * @param right 오른쪽 트리로 연결하려는 값
 	 */	
 	public void setBoth(char left, char right) {
-
-
-//		this.item = left;
-//		this.item = right;
-
-		//마지막 줄에 this.item = right;를 하게 되면 right 값만 전달 됨. left 값은 없어지게됨. +=를 하면 문자로 변경됨. 숫자로 변경이 안됨..?
-		
-	
-
-		// ?????
-
+		this.left = new TreeNodeDL(left);
+		this.right = new TreeNodeDL(right);
 	}
-
-	/**
-	 * 양쪽 노드가 있는 노드 생성
-	 * @param left 왼쪽 트리로 연결하려는 노드
-	 * @param right 오른쪽 트리로 연결하려는 노드
-	 */	
 	public void setBoth(TreeNodeDL left, TreeNodeDL right) {
 		this.left = left;
-		
-		this.right = right;	// ?????
-		
+		this.right = right;
 	}
 
 	/**

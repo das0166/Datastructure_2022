@@ -57,16 +57,13 @@ public class TreeDL {
 	 */	
 	static public TreeNodeDL insert(TreeDL tree, char item) {
 		TreeNodeDL node = tree.root;
-
-//		if(node == null) { 
-//			return new TreeNodeDL(item); // 노드가 빈 경우, 새로운 노드 삽입후 반환 
-//		};
-		if(item < node.item) {
-			node = node.left;
-		} else if(item > node.item) {
-			node = node.right;
-		}// ?????
-
+		TreeNodeDL newNode = new TreeNodeDL();
+		newNode.item = item;
+		newNode.left = null;
+		newNode.right = null;
+		if(node == null) return newNode;
+		else if(newNode.item < node.item) node.left = insert(new TreeDL(node.left),item);
+		else if(newNode.item > node.item) node.right = insert(new TreeDL(node.right),item);
 		return node;
 	}
 
@@ -89,18 +86,28 @@ public class TreeDL {
 	public void remove(TreeDL tree, TreeNodeDL node) {
 		TreeNodeDL parent = tree.root;
 		if (parent == null) return;
-				
-		if (node.left == null && node.right == null) {		// no child
-			; // ?????
+		if (node.left == null && node.right == null) {
+			if(parent.left == node) parent.left = null;
+			else parent.right = null;
 		}
-		else if (node.left != null && node.right == null) {	// only left hand child
-			;	// ?????
+		else if (node.left != null && node.right == null) {
+			if(parent.left == node) parent.left = node.left;
+			else parent.right = node.left;
 		}
-		else if (node.left == null && node.right != null) {	// only right hand child
-			;	// ?????
+		else if (node.left == null && node.right != null) {
+			if(parent.left == node) parent.left = node.right;
+			else parent.right = node.right;
 		}
-		else {							// both hand child
-			;	// ?????
+		else {
+			TreeNodeDL right = node.right;
+			TreeNodeDL tempTree = right.left;
+			char c = 0;
+			while(tempTree != null) { 
+				c = tempTree.item;
+				tempTree = tempTree.left;
+			}
+			this.remove(c);
+			node.item = c;
 		}
 	}	 
 
@@ -182,32 +189,20 @@ public class TreeDL {
 	public String inOrderTraversal(TreeNodeDL root) {
 		String buff = "";
 		if (root != null) {
-			buff += preOrderTraversal(root.left);
+			buff += inOrderTraversal(root.left);
 			buff += root.item;
-			buff += preOrderTraversal(root.right);
+			buff += inOrderTraversal(root.right);
 		}
-		
-		return buff;	// ?????
-
+		return buff;
 	}
-	
-	/**
-	 * 계층적 후방 교회법으로 노드를 순회
-	 * L 왼쪽 트리  >> R 오른쪽 트리>> D 현재 노드
-	 * @param root 시작점 노드
-	 * @return 순회 결과 문자열
-	 */
 	public String postOrderTraversal(TreeNodeDL root) {
-
 		String buff = "";
 		if (root != null) {
-			buff += preOrderTraversal(root.left);
-			buff += preOrderTraversal(root.right);
+			buff += postOrderTraversal(root.left);
+			buff += postOrderTraversal(root.right);
 			buff += root.item;
-		
 		}
-		
-		return buff;	// ?????
+		return buff;
 
 	}
 }
