@@ -55,8 +55,9 @@ public class GraphAdjacencyEdges {
 	 * @param next µµÂø ³ëµå
 	 */
 	public void appendEdge(int source, int [] next) {
-
-		;	// ?????
+		for(int i=0; i<next.length; i++) {
+			appendEdge(source, next[i]);// ?????
+		};
 
 	}
 
