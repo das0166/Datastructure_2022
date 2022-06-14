@@ -1,5 +1,7 @@
 package Graph;
 
+import stack.StackSL;
+
 public class GraphSL {	
 	/**
 	 * 그래프의 인접 연결 목록
@@ -34,9 +36,9 @@ public class GraphSL {
 		visited = new boolean [headOfGraph.length];		
 
 		resultOfDFS = " 출발 노드 -" + start;	// 최초 출발 노드
-		;				// ????? 복기 후 다시 처리를 예약					
-		;				// ????? 통과 사실을 등록		
-		;				// ????? 최초 검색 시작점
+		edge = headOfGraph[waitingEdge.push((char)start)];			// ????? 복기 후 다시 처리를 예약					
+		visited[start] = true;				// ????? 통과 사실을 등록		
+		edge = edge;				// ????? 최초 검색 시작점
 
 		while (true) {	
 			while (edge != null) {
@@ -44,9 +46,9 @@ public class GraphSL {
 				
 				if (!visited[id]) {
 					resultOfDFS += "-" + id;
-					;	// ????? 복기 후 다시 처리를 예약					
-					;	// ????? 통과 사실을 등록		
-					;	// ????? 노드 시작점							
+					edge = headOfGraph[waitingEdge.push((char)id)];	// ????? 복기 후 다시 처리를 예약					
+					visited[start] = true;	// ????? 통과 사실을 등록		
+					start = id;	// ????? 노드 시작점							
 				}
 				else
 					edge = edge.getNext();	// 다음 인접 노드로
