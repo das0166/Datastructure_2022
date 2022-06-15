@@ -18,7 +18,7 @@ public class StackSL {
 		if (top == null) return true;
 		else return false;
 	}
-	public void push(char item) {
+	public int push(char item) {
 		StackNodeSL node = new StackNodeSL(item);
          if(isEmpty()){
                 top = node;
@@ -26,6 +26,7 @@ public class StackSL {
                 node.next= top;
                 top= node;
          }
+		return item;
 	}
 	public char pop() {
 		  if(isEmpty()){
