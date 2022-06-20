@@ -35,7 +35,7 @@ public class GraphEdgeSL {
 
 	/**
 	 * 노드 번호 검사
-	 * @return 저장된 전보
+	 * @return 저장된 정보
 	 */	
 	public int getId() {
 		return this.id;
